@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>CipherStrike Web — Offensive Security</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "secondary-container": "#f1f0f7",
+                        "on-secondary-fixed": "#1c1c23",
+                        "surface-dim": "#fdfcff",
+                        "on-tertiary-container": "#002114",
+                        "surface-variant": "#e2e1ec",
+                        "secondary-fixed-dim": "#c6c5d0",
+                        "error-container": "#ffdad6",
+                        "surface-tint": "#684cb6",
+                        "on-secondary": "#ffffff",
+                        "on-secondary-container": "#191a2c",
+                        "surface-container-low": "#f6f5ff",
+                        "surface-container-high": "#ebe9f4",
+                        "tertiary-fixed-dim": "#89d6b2",
+                        "on-surface-variant": "#45464f",
+                        "surface-container": "#f1f0f7",
+                        "surface-container-lowest": "#ffffff",
+                        "secondary-dim": "#c6c5d0",
+                        "primary-container": "#e9ddff",
+                        "surface": "#fdfcff",
+                        "primary-dim": "#cfbcff",
+                        "outline": "#767680",
+                        "tertiary-container": "#a5f2ce",
+                        "on-error-container": "#410002",
+                        "on-error": "#ffffff",
+                        "on-tertiary-fixed": "#002114",
+                        "primary": "#684cb6",
+                        "primary-fixed-dim": "#cfbcff",
+                        "on-primary-container": "#22005d",
+                        "outline-variant": "#c6c5d0",
+                        "on-tertiary": "#ffffff",
+                        "on-primary": "#ffffff",
+                        "on-tertiary-fixed-variant": "#005139",
+                        "tertiary-fixed": "#a5f2ce",
+                        "surface-container-highest": "#e5e4ef",
+                        "inverse-surface": "#303036",
+                        "background": "#fdfcff",
+                        "on-primary-fixed": "#22005d",
+                        "secondary-fixed": "#e2e1ec",
+                        "primary-fixed": "#e9ddff",
+                        "tertiary-dim": "#89d6b2",
+                        "error": "#ba1a1a",
+                        "inverse-on-surface": "#f2eff7",
+                        "error-dim": "#ffb4ab",
+                        "tertiary": "#006d4e",
+                        "inverse-primary": "#cfbcff",
+                        "on-secondary-fixed-variant": "#45464f",
+                        "secondary": "#5e5e6b",
+                        "on-primary-fixed-variant": "#4f378b",
+                        "surface-bright": "#fdfcff",
+                        "on-background": "#1b1b21",
+                        "on-surface": "#1b1b21"
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.5rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    fontFamily: {
+                        "headline": ["Geist", "sans-serif"],
+                        "body": ["Geist", "sans-serif"],
+                        "label": ["Geist", "sans-serif"]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        body { font-family: 'Geist', sans-serif; }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .custom-scrollbar::-webkit-scrollbar { width: 4px; }
+        .custom-scrollbar::-webkit-scrollbar-track { background: transparent; }
+        .custom-scrollbar::-webkit-scrollbar-thumb { background: #c6c5d0; border-radius: 10px; }
+    </style>
+</head>
+<body class="bg-background text-on-surface flex h-screen overflow-hidden">
+<!-- TopNavBar -->
+<header class="bg-white border-b border-outline-variant flex justify-between items-center w-full px-6 h-14 z-50 fixed top-0">
+<span class="text-xl font-bold tracking-tighter text-on-surface">CipherStrike</span>
+<div class="h-8 w-8 rounded-full bg-surface-container border border-outline-variant flex items-center justify-center overflow-hidden">
+<img class="h-full w-full object-cover" data-alt="User" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAggtMG7X4h3riAszXxC2dhD6wiIQBTRrcLibomi6Bj03c3pAs4Wx9a-vAdERHydJfyGZqJImLGpGKSzCnLGF-GLY-UIXEF_GTW8RznpYtpmf4TUZj5i7VT093iuCFme03a_uGDim-QFgLXe9bqq_txXHAXQccJ5D8qgDxM9tQFpydYsnxmqHff2oK6DdL5jT3g47EF-dP34iCVtGNmkEhBn4blalHpJr27cjpHedirJfhtprDndFjc78Q0lVds0EhGcVh1mYJXPfc"/>
+</div>
+</header>
+<!-- SideNavBar removed — shell sidebar lives in Next.js RunScanShell -->
+<!-- Main Content Canvas -->
+<main class="flex-1 mt-14 ml-0 w-full min-w-0 flex flex-col relative overflow-hidden bg-background">
+<!-- Workspace Header -->
+<div class="px-8 py-8 flex items-center justify-between border-b border-surface-container">
+<div>
+<h1 class="text-2xl font-bold tracking-tight text-on-surface">Agentic Workspace</h1>
+<p class="text-on-surface-variant text-xs mt-1">CipherStrike v1.0.0 — Offensive AI Subsystem</p>
+</div>
+<div class="flex items-center gap-2 bg-surface-container-high px-4 py-2 rounded-full border border-outline-variant">
+<div class="w-2 h-2 rounded-full bg-tertiary"></div>
+<span class="text-[10px] font-bold text-on-surface uppercase tracking-wide">System Health: Nominal</span>
+</div>
+</div>
+<!-- Chat Area -->
+<div class="flex-1 flex flex-col items-center justify-center max-w-4xl mx-auto w-full px-6 overflow-y-auto custom-scrollbar pb-12">
+<!-- Empty State -->
+<div class="text-center mb-12">
+<div class="w-16 h-16 bg-primary-container text-primary rounded-2xl flex items-center justify-center mx-auto mb-6">
+<span class="material-symbols-outlined text-3xl" style="font-variation-settings: 'FILL' 1;">hub</span>
+</div>
+<h2 class="text-xl font-bold text-on-surface mb-2">Initialize Offensive Sequence</h2>
+<p class="text-on-surface-variant text-sm max-w-md mx-auto">Deploy specialized agents to perform deep reconnaissance, vulnerability analysis, or automated exploit crafting.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4 w-full mb-12">
+<button class="flex items-start gap-4 p-5 rounded-xl border border-outline-variant bg-surface-container-lowest hover:border-primary hover:shadow-md transition-all text-left group">
+<div class="p-2 bg-surface-container rounded-lg group-hover:bg-primary-container transition-colors">
+<span class="material-symbols-outlined text-primary">language</span>
+</div>
+<div>
+<div class="font-bold text-sm text-on-surface">Recon my domain</div>
+<div class="text-xs text-on-surface-variant mt-1">Passive OSINT and sub-domain enumeration</div>
+</div>
+</button>
+<button class="flex items-start gap-4 p-5 rounded-xl border border-outline-variant bg-surface-container-lowest hover:border-primary hover:shadow-md transition-all text-left group">
+<div class="p-2 bg-surface-container rounded-lg group-hover:bg-primary-container transition-colors">
+<span class="material-symbols-outlined text-primary">bug_report</span>
+</div>
+<div>
+<div class="font-bold text-sm text-on-surface">Analyze target for CVEs</div>
+<div class="text-xs text-on-surface-variant mt-1">Version detection and vulnerability mapping</div>
+</div>
+</button>
+<button class="flex items-start gap-4 p-5 rounded-xl border border-outline-variant bg-surface-container-lowest hover:border-primary hover:shadow-md transition-all text-left group">
+<div class="p-2 bg-surface-container rounded-lg group-hover:bg-primary-container transition-colors">
+<span class="material-symbols-outlined text-primary">code_blocks</span>
+</div>
+<div>
+<div class="font-bold text-sm text-on-surface">Craft SQLi Payload</div>
+<div class="text-xs text-on-surface-variant mt-1">Tailored bypass strings for specific DB engines</div>
+</div>
+</button>
+<button class="flex items-start gap-4 p-5 rounded-xl border border-outline-variant bg-surface-container-lowest hover:border-primary hover:shadow-md transition-all text-left group">
+<div class="p-2 bg-surface-container rounded-lg group-hover:bg-primary-container transition-colors">
+<span class="material-symbols-outlined text-primary">radar</span>
+</div>
+<div>
+<div class="font-bold text-sm text-on-surface">Network Scan</div>
+<div class="text-xs text-on-surface-variant mt-1">Stealth port scanning and service fingerprinting</div>
+</div>
+</button>
+</div>
+<!-- Bento Prompt Input -->
+<div class="w-full bg-surface-container-lowest border border-outline-variant p-2 rounded-2xl shadow-xl focus-within:ring-2 ring-primary ring-offset-2 transition-all">
+<textarea id="hex-workspace-prompt" class="w-full bg-transparent border-none focus:ring-0 resize-none min-h-[100px] p-4 text-on-surface placeholder:text-outline font-medium text-base custom-scrollbar" placeholder="Enter offensive security prompt or tactical objective..."></textarea>
+<div class="flex flex-wrap items-center justify-between pt-2 border-t border-outline-variant/30 mt-2 px-2 pb-2 gap-4">
+<div class="flex items-center gap-2">
+<div class="flex items-center gap-1 p-1 bg-surface-container rounded-lg">
+<button class="px-3 py-1.5 flex items-center gap-2 text-xs font-bold text-primary hover:bg-primary/10 rounded-md transition-colors border border-transparent hover:border-primary/20">
+<span class="material-symbols-outlined text-sm">neurology</span> GPT-4o
+                        </button>
+<div class="h-4 w-px bg-outline-variant mx-1"></div>
+<button class="px-2.5 py-1.5 text-on-surface-variant hover:text-primary hover:bg-primary/10 rounded-md transition-all flex items-center gap-1.5 text-xs font-bold">
+<span class="material-symbols-outlined text-sm">person_search</span> @ Agent
+                        </button>
+<button class="px-2.5 py-1.5 text-on-surface-variant hover:text-primary hover:bg-primary/10 rounded-md transition-all flex items-center gap-1.5 text-xs font-bold">
+<span class="material-symbols-outlined text-sm">build</span> + Tool
+                        </button>
+</div>
+<div class="flex items-center gap-1">
+<button class="p-2 text-on-surface-variant hover:text-primary hover:bg-surface-container rounded-lg transition-colors"><span class="material-symbols-outlined text-xl">attach_file</span></button>
+<button class="p-2 text-on-surface-variant hover:text-primary hover:bg-surface-container rounded-lg transition-colors"><span class="material-symbols-outlined text-xl">terminal</span></button>
+</div>
+</div>
+<div class="flex items-center gap-6">
+<label class="flex items-center gap-2 cursor-pointer group">
+<input class="rounded border-outline-variant text-primary focus:ring-primary h-4 w-4" type="checkbox"/>
+<span class="text-xs font-bold text-on-surface-variant group-hover:text-on-surface transition-colors">Auto-Exploit</span>
+</label>
+<button type="button" id="hex-workspace-execute" class="bg-primary text-on-primary px-6 py-2.5 rounded-lg font-bold text-xs flex items-center gap-2 hover:shadow-lg active:scale-95 transition-all uppercase tracking-wider">
+                        Execute <span class="material-symbols-outlined text-sm">bolt</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Terminal Status Overlay -->
+</main>
+<!-- Floating Action Trigger (Mobile Only) -->
+<button class="md:hidden fixed bottom-6 right-6 w-14 h-14 bg-primary text-on-primary rounded-full shadow-2xl flex items-center justify-center z-50">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">add</span>
+</button>
+<script>
+(function () {
+  function wire() {
+    var ta = document.getElementById("hex-workspace-prompt");
+    var exec = document.getElementById("hex-workspace-execute");
+    if (!ta || !exec) return;
+    exec.addEventListener("click", function () {
+      var text = (ta.value || "").trim();
+      if (!text) return;
+      var id = self.crypto.randomUUID();
+      try {
+        sessionStorage.setItem("hex-chat-bootstrap", JSON.stringify({ threadId: id, prompt: text }));
+      } catch (e) {}
+      var target = "/run-scan/chat?t=" + encodeURIComponent(id);
+      if (window.top) window.top.location.href = target;
+      else window.location.href = target;
+    });
+  }
+  if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", wire);
+  else wire();
+})();
+</script>
+</body></html>

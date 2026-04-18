@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+
+<html class="" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>CipherStrike | Offensive Security</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">tailwind.config = {darkMode: "class", theme: {extend: {colors: {"tertiary-fixed": "#6bffc1", "surface-container-lowest": "#ffffff", "primary-fixed-dim": "#987cea", "on-primary": "#fdf7ff", "on-tertiary-fixed": "#004b33", "on-secondary-container": "#515159", "on-primary-container": "#230062", "on-secondary-fixed": "#3e3f47", "on-tertiary": "#e6ffef", "inverse-on-surface": "#9d9ca4", "inverse-primary": "#a589f8", "on-secondary": "#faf8ff", "surface-container": "#eeecfa", "outline-variant": "#b1b1c0", "surface-container-highest": "#e2e1f2", "on-primary-fixed": "#000000", "primary-container": "#a589f8", "on-tertiary-container": "#006042", "on-error": "#fff7f7", tertiary: "#006d4b", "surface-dim": "#d9d8e9", "on-surface-variant": "#5d5e6c", "secondary-container": "#e3e1ec", primary: "#684cb6", "on-tertiary-fixed-variant": "#006b4a", "on-surface": "#30323e", "surface-container-low": "#f4f2fe", "inverse-surface": "#0d0e14", "secondary-fixed": "#e3e1ec", background: "#fbf8ff", secondary: "#5e5e67", "primary-fixed": "#a589f8", "tertiary-fixed-dim": "#5af0b4", surface: "#fbf8ff", "secondary-fixed-dim": "#d4d3dd", "error-container": "#f97386", "surface-container-high": "#e8e7f5", "surface-bright": "#fbf8ff", "on-primary-fixed-variant": "#2e007c", "surface-variant": "#e2e1f2", "on-secondary-fixed-variant": "#5a5b63", "on-error-container": "#6e0523", error: "#a8364b", "on-background": "#30323e", outline: "#797988", "tertiary-container": "#6bffc1", "surface-tint": "#684cb6", "primary-dim": "#5b3fa9", "secondary-dim": "#52525b", "error-dim": "#6b0221", "tertiary-dim": "#005f41"}, borderRadius: {DEFAULT: "0.25rem", lg: "0.5rem", xl: "0.75rem", full: "9999px"}, fontFamily: {headline: ["Geist"], body: ["Geist"], label: ["Geist"], display: "Geist"}}}};</script>
+<style>
+        body { font-family: 'Geist', sans-serif; background-color: #09090b; color: #fafafa; }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+        .marquee-container { overflow: hidden; white-space: nowrap; }
+        .marquee-content { display: inline-block; animation: marquee 30s linear infinite; }
+        @keyframes marquee { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+    </style>
+</head>
+<body class="bg-background text-on-background antialiased selection:bg-primary selection:text-on-primary">
+<!-- TopNavBar (Shared Component) -->
+<main class="">
+<!-- Hero Section -->
+<section class="relative min-h-[921px] flex items-center justify-center px-6 overflow-hidden">
+<div class="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,_#1e1b4b_0%,_transparent_70%)] opacity-30"></div>
+<div class="absolute inset-0 z-0 opacity-10 pointer-events-none" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBDVCqaAwavljXHCv6iy-HTkq_EFklP46KElPDexQUolB-7JQg-qUCDs1HGgESCJT5z4J-Iz3gcqrgYcCYHAEPP7Td8Yl7ItHXCYtWDp3gLVGn_yySXd245kX_mLVsof3x4yc8IEdzMUQ-C34-ugoq-eg8UhgICh1_CIglXcVDHRvz0vuCGaZTHvnJI7El2ZZ6Tc_BrKlzJeF2qB6K36Ufa0eKzfI2lw0_FD5NclVXkbkw0ZDWuKo-3VIb0UA_c3AfW-cacCE3uoWI');"></div>
+<div class="relative z-10 max-w-6xl mx-auto grid lg:grid-cols-2 gap-12 items-center">
+<div class="space-y-8">
+<div class="inline-flex items-center gap-2 px-3 py-1 bg-surface-container-high border border-outline-variant rounded-full">
+<span class="flex h-2 w-2 rounded-full bg-tertiary"></span>
+<span class="text-xs font-bold tracking-widest uppercase text-on-surface-variant">System: Online</span>
+</div>
+<h1 class="text-5xl md:text-7xl font-headline font-extrabold tracking-tighter leading-[1.1] text-on-surface">
+                        Autonomous <br/>
+<span class="text-primary">Offensive Security</span>
+</h1>
+<p class="text-xl text-on-surface-variant max-w-lg leading-relaxed">
+                        Orchestrate 147+ security tools via 12 specialized agents. Automate penetration testing at the speed of thought.
+                    </p>
+<div class="flex flex-wrap gap-4">
+<a class="inline-flex items-center justify-center px-8 py-4 bg-primary text-on-primary rounded font-bold text-lg hover:opacity-90 transition-all shadow-[0_0_20px_rgba(167,139,250,0.3)]" href="/login">Login</a>
+</div>
+</div>
+<div class="relative group">
+<div class="absolute -inset-1 bg-gradient-to-r from-primary/20 to-tertiary/20 rounded-xl blur-xl transition duration-1000 group-hover:duration-200 group-hover:opacity-100 opacity-50"></div>
+<div class="relative bg-surface-container border border-outline-variant rounded-xl overflow-hidden shadow-2xl">
+<div class="flex items-center justify-between px-4 py-2 bg-surface-container-high border-b border-outline-variant">
+<div class="flex gap-1.5">
+<div class="w-3 h-3 rounded-full bg-error/40"></div>
+<div class="w-3 h-3 rounded-full bg-primary/40"></div>
+<div class="w-3 h-3 rounded-full bg-tertiary/40"></div>
+</div>
+<span class="text-[10px] font-mono text-on-surface-variant uppercase tracking-widest">cipherstrike-v2.0 // core-agent-network</span>
+</div>
+<div class="p-6 font-mono text-sm space-y-3 min-h-[350px]">
+<div class="flex gap-3">
+<span class="text-primary">root@cipherstrike:~$</span>
+<span class="text-on-surface">initialize --agent-cluster=shadow-ops --targets=internal.lan</span>
+</div>
+<div class="text-tertiary">[SUCCESS] Cluster "Shadow Ops" synchronized. 12 agents active.</div>
+<div class="text-[#a1a1aa] pl-4 border-l border-outline-variant">
+                                [INFO] Recon-Agent: Scanning subnet 192.168.1.0/24... <br/>
+                                [INFO] Recon-Agent: 14 open ports identified on primary target. <br/>
+                                [INFO] Exploit-Agent: Vulnerability CVE-2024-21626 detected. <br/>
+                                [INFO] Orchestrator: Queuing Metasploit payload injection...
+                            </div>
+<div class="bg-surface-container-lowest p-3 border border-outline-variant rounded flex items-center justify-between">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary">analytics</span>
+<span class="text-xs text-on-surface">Compromise Probability: 94.2%</span>
+</div>
+<div class="h-1.5 w-24 bg-surface-container rounded-full overflow-hidden">
+<div class="h-full bg-primary w-[94%]"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Trusted By Section -->
+<section class="py-12 border-y border-outline-variant bg-surface-container-low overflow-hidden">
+<div class="max-w-6xl mx-auto px-6">
+<p class="text-center text-[10px] font-bold uppercase tracking-[0.3em] text-on-surface-variant mb-10">Trusted by modern security operations</p>
+<div class="flex flex-wrap justify-center items-center gap-x-16 gap-y-8 grayscale opacity-50 hover:grayscale-0 hover:opacity-100 transition-all">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-3xl">verified_user</span>
+<span class="font-black text-xl tracking-tighter">SENTINEL</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-3xl">token</span>
+<span class="font-black text-xl tracking-tighter">VOIDSEC</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-3xl">hive</span>
+<span class="font-black text-xl tracking-tighter">CIPHERSTRIKE</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-3xl">layers</span>
+<span class="font-black text-xl tracking-tighter">PHANTOM.IO</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-3xl">radar</span>
+<span class="font-black text-xl tracking-tighter">NETSTRIKE</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Features Grid (Bento) -->
+<section class="py-24 px-6 max-w-7xl mx-auto">
+<div class="mb-16 text-center">
+<h2 class="text-3xl md:text-5xl font-headline font-bold tracking-tight mb-4">Precision-Engineered <span class="text-primary">Intelligence</span></h2>
+<p class="text-on-surface-variant text-lg max-w-2xl mx-auto">A unified platform designed for elite security researchers and red teams.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-12 gap-4 auto-rows-[280px]">
+<!-- Large Card -->
+<div class="md:col-span-8 md:row-span-2 bg-surface-container border border-outline-variant rounded-xl p-8 flex flex-col justify-between group">
+<div>
+<div class="w-12 h-12 bg-primary/10 border border-primary/20 rounded flex items-center justify-center mb-6">
+<span class="material-symbols-outlined text-primary text-3xl" style="font-variation-settings: 'FILL' 1;">hub</span>
+</div>
+<h3 class="text-2xl font-bold mb-4">Multi-role architecture</h3>
+<p class="text-on-surface-variant text-lg max-w-md">12 specialized task runners work in concert. Recon, analysis, exploitation, and post-ex are handled by dedicated modules tuned for each security domain.</p>
+</div>
+<div class="relative w-full aspect-video bg-surface-container-lowest border border-outline-variant rounded-lg mt-8 overflow-hidden">
+<img class="w-full h-full object-cover opacity-50" data-alt="Futuristic visualization of an interconnected digital neural network with glowing nodes and purple data streams in a dark environment." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBD9_3nqUvwaNm5hsc9ZxCunIpk2Fcm0OoPO44ySHM011EGqMJNbZ-gNXtk_nQ8LUDn_Ng78lYJqXGFTrtsNe6ckFuQmqGd7zhPnNSQXb6d1p7rf4kAva4d1__IxiCizP3qUCDDSUTMXxfKbODLAiaxjCLKjugojf2kfxQLiQU3bcbeQ562Ccw_6E0KbOKWlCI1A3DE-besDEJPTAGmsbmjr1SRIAVQ_CoJJGlxMA9GXAUpGG_wS112kUWOL6p-XXwIeFJjd2WHFqA"/>
+<div class="absolute inset-0 flex items-center justify-center">
+<div class="grid grid-cols-3 gap-8">
+<div class="w-16 h-16 rounded-full border border-primary flex items-center justify-center bg-background/80 backdrop-blur">
+<span class="material-symbols-outlined text-primary">visibility</span>
+</div>
+<div class="w-16 h-16 rounded-full border border-tertiary flex items-center justify-center bg-background/80 backdrop-blur">
+<span class="material-symbols-outlined text-tertiary">bolt</span>
+</div>
+<div class="w-16 h-16 rounded-full border border-error flex items-center justify-center bg-background/80 backdrop-blur">
+<span class="material-symbols-outlined text-error">target</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Tall Card -->
+<div class="md:col-span-4 md:row-span-2 bg-surface-container border border-outline-variant rounded-xl p-8 flex flex-col justify-center text-center">
+<div class="w-20 h-20 bg-tertiary/10 border border-tertiary/20 rounded-full flex items-center justify-center mb-8 mx-auto">
+<span class="material-symbols-outlined text-tertiary text-4xl" style="font-variation-settings: 'FILL' 1;">psychology</span>
+</div>
+<h3 class="text-2xl font-bold mb-4">Human-in-the-Loop</h3>
+<p class="text-on-surface-variant text-lg">Automation without loss of control. Review run plans, authorize critical exploits, and pivot the strategy in real-time through the terminal console.</p>
+<div class="mt-12 space-y-3">
+<div class="h-10 bg-surface-container-high border border-outline-variant rounded flex items-center px-4 justify-between">
+<span class="text-xs font-mono">Agent-01 Plan</span>
+<span class="text-[10px] text-tertiary bg-tertiary/10 px-2 py-0.5 rounded uppercase">Pending</span>
+</div>
+<div class="h-10 bg-surface-container-high border border-outline-variant rounded flex items-center px-4 justify-between">
+<span class="text-xs font-mono">Shell Access</span>
+<span class="text-[10px] text-error bg-error/10 px-2 py-0.5 rounded uppercase">Restricted</span>
+</div>
+<div class="h-10 bg-surface-container-high border border-outline-variant rounded flex items-center px-4 justify-between">
+<span class="text-xs font-mono">CVE Analysis</span>
+<span class="text-[10px] text-tertiary bg-tertiary/10 px-2 py-0.5 rounded uppercase">Ready</span>
+</div>
+</div>
+</div>
+<!-- Wide Card -->
+<div class="md:col-span-12 md:row-span-1 bg-surface-container border border-outline-variant rounded-xl p-8 flex flex-col md:flex-row items-center gap-12 overflow-hidden">
+<div class="flex-1">
+<div class="inline-flex items-center gap-2 mb-4 text-tertiary">
+<span class="material-symbols-outlined">update</span>
+<span class="text-sm font-bold uppercase tracking-wider">Zero-Day Intel</span>
+</div>
+<h3 class="text-2xl font-bold mb-2">Real-time CVE Analysis</h3>
+<p class="text-on-surface-variant max-w-lg">Instantly map discovered services to the latest CVE databases. The platform parses vulnerability reports in milliseconds to identify actionable attack paths.</p>
+</div>
+<div class="flex-1 w-full h-full bg-surface-container-lowest border border-outline-variant rounded-lg p-4 font-mono text-[10px] text-tertiary overflow-hidden">
+<div class="animate-pulse">Analyzing kernel modules...</div>
+<div class="mt-2 text-on-surface-variant">&gt; Search: Linux Kernel 6.5.0-x</div>
+<div class="mt-2 p-2 border border-tertiary/30 bg-tertiary/5 rounded">
+<div class="flex justify-between font-bold">
+<span>CVE-2024-1086</span>
+<span class="text-error">CRITICAL 9.8</span>
+</div>
+<div class="mt-1 opacity-80">Use-after-free vulnerability in the Netfilter...</div>
+<div class="mt-2 underline cursor-pointer">Generate Exploit Script</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Tool Arsenal Section -->
+<section class="py-24 bg-surface-container-low overflow-hidden border-y border-outline-variant">
+<div class="max-w-6xl mx-auto px-6 mb-16 text-center">
+<h2 class="text-3xl md:text-4xl font-headline font-bold mb-4">Weaponized <span class="text-primary">Arsenal</span></h2>
+<p class="text-on-surface-variant max-w-xl mx-auto">Direct integration with 147+ industry-standard security tools. No wrappers, pure binary execution via unified orchestration.</p>
+</div>
+<div class="marquee-container py-4 relative">
+<div class="absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-surface-container-low to-transparent z-10"></div>
+<div class="absolute inset-y-0 right-0 w-32 bg-gradient-to-l from-surface-container-low to-transparent z-10"></div>
+<div class="marquee-content flex gap-12 items-center">
+<!-- Tool Logos (Represented by stylized text + icons) -->
+<div class="flex items-center gap-3 px-6 py-3 bg-surface border border-outline-variant rounded-full group cursor-default hover:border-primary/50 transition-colors">
+<span class="material-symbols-outlined text-primary">search</span>
+<span class="font-bold tracking-tighter">NMAP</span>
+</div>
+<div class="flex items-center gap-3 px-6 py-3 bg-surface border border-outline-variant rounded-full group cursor-default hover:border-primary/50 transition-colors">
+<span class="material-symbols-outlined text-primary">database</span>
+<span class="font-bold tracking-tighter">SQLMAP</span>
+</div>
+<div class="flex items-center gap-3 px-6 py-3 bg-surface border border-outline-variant rounded-full group cursor-default hover:border-primary/50 transition-colors">
+<span class="material-symbols-outlined text-primary">shield</span>
+<span class="font-bold tracking-tighter">METASPLOIT</span>
+</div>
+<div class="flex items-center gap-3 px-6 py-3 bg-surface border border-outline-variant rounded-full group cursor-default hover:border-primary/50 transition-colors">
+<span class="material-symbols-outlined text-primary">wifi</span>
+<span class="font-bold tracking-tighter">AIRCRACK-NG</span>
+</div>
+<div class="flex items-center gap-3 px-6 py-3 bg-surface border border-outline-variant rounded-full group cursor-default hover:border-primary/50 transition-colors">
+<span class="material-symbols-outlined text-primary">key</span>
+<span class="font-bold tracking-tighter">JOHN</span>
+</div>
+<div class="flex items-center gap-3 px-6 py-3 bg-surface border border-outline-variant rounded-full group cursor-default hover:border-primary/50 transition-colors">
+<span class="material-symbols-outlined text-primary">language</span>
+<span class="font-bold tracking-tighter">BURPSUITE</span>
+</div>
+<div class="flex items-center gap-3 px-6 py-3 bg-surface border border-outline-variant rounded-full group cursor-default hover:border-primary/50 transition-colors">
+<span class="material-symbols-outlined text-primary">lan</span>
+<span class="font-bold tracking-tighter">WIRESHARK</span>
+</div>
+<!-- Duplicate for loop -->
+<div class="flex items-center gap-3 px-6 py-3 bg-surface border border-outline-variant rounded-full group cursor-default hover:border-primary/50 transition-colors">
+<span class="material-symbols-outlined text-primary">search</span>
+<span class="font-bold tracking-tighter">NMAP</span>
+</div>
+<div class="flex items-center gap-3 px-6 py-3 bg-surface border border-outline-variant rounded-full group cursor-default hover:border-primary/50 transition-colors">
+<span class="material-symbols-outlined text-primary">database</span>
+<span class="font-bold tracking-tighter">SQLMAP</span>
+</div>
+<div class="flex items-center gap-3 px-6 py-3 bg-surface border border-outline-variant rounded-full group cursor-default hover:border-primary/50 transition-colors">
+<span class="material-symbols-outlined text-primary">shield</span>
+<span class="font-bold tracking-tighter">METASPLOIT</span>
+</div>
+<div class="flex items-center gap-3 px-6 py-3 bg-surface border border-outline-variant rounded-full group cursor-default hover:border-primary/50 transition-colors">
+<span class="material-symbols-outlined text-primary">wifi</span>
+<span class="font-bold tracking-tighter">AIRCRACK-NG</span>
+</div>
+<div class="flex items-center gap-3 px-6 py-3 bg-surface border border-outline-variant rounded-full group cursor-default hover:border-primary/50 transition-colors">
+<span class="material-symbols-outlined text-primary">key</span>
+<span class="font-bold tracking-tighter">JOHN</span>
+</div>
+</div>
+</div>
+<div class="mt-16 flex justify-center">
+<a class="inline-flex items-center gap-2 text-primary font-bold hover:underline" href="#">
+                    View all 147 integrated tools
+                    <span class="material-symbols-outlined">arrow_forward</span>
+</a>
+</div>
+</section>
+<!-- Footer -->
+<footer class="bg-surface-container-lowest border-t border-outline-variant pt-24 pb-12 px-6">
+<div class="max-w-7xl mx-auto">
+<div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-12 mb-24">
+<div class="col-span-2">
+<div class="flex items-center gap-3 mb-6">
+<div class="w-10 h-10 bg-primary rounded flex items-center justify-center">
+<span class="material-symbols-outlined text-on-primary" style="font-variation-settings: 'FILL' 1;">security</span>
+</div>
+<span class="text-2xl font-black tracking-tighter uppercase">CipherStrike</span>
+</div>
+<p class="text-on-surface-variant max-w-xs leading-relaxed">The world's most advanced autonomous offensive security platform. Built for red teams by red teams.</p>
+<div class="flex gap-4 mt-8">
+<a class="w-10 h-10 rounded border border-outline-variant flex items-center justify-center text-on-surface-variant hover:text-primary hover:border-primary transition-all" href="#">
+<span class="material-symbols-outlined">alternate_email</span>
+</a>
+<a class="w-10 h-10 rounded border border-outline-variant flex items-center justify-center text-on-surface-variant hover:text-primary hover:border-primary transition-all" href="#">
+<span class="material-symbols-outlined">groups</span>
+</a>
+<a class="w-10 h-10 rounded border border-outline-variant flex items-center justify-center text-on-surface-variant hover:text-primary hover:border-primary transition-all" href="#">
+<span class="material-symbols-outlined">code</span>
+</a>
+</div>
+</div>
+<div class="space-y-4">
+<h4 class="font-bold uppercase text-xs tracking-widest text-on-surface">Platform</h4>
+<ul class="space-y-2 text-sm text-on-surface-variant">
+<li><a class="hover:text-primary" href="#">Autonomous operations</a></li>
+<li><a class="hover:text-primary" href="#">Tool Integration</a></li>
+<li><a class="hover:text-primary" href="#">CVE Database</a></li>
+<li><a class="hover:text-primary" href="#">Cloud Runner</a></li>
+</ul>
+</div>
+<div class="space-y-4">
+<h4 class="font-bold uppercase text-xs tracking-widest text-on-surface">Resources</h4>
+<ul class="space-y-2 text-sm text-on-surface-variant">
+<li><a class="hover:text-primary" href="#">Documentation</a></li>
+<li><a class="hover:text-primary" href="#">Security Blog</a></li>
+<li><a class="hover:text-primary" href="#">API Reference</a></li>
+<li><a class="hover:text-primary" href="#">Community</a></li>
+</ul>
+</div>
+<div class="space-y-4">
+<h4 class="font-bold uppercase text-xs tracking-widest text-on-surface">Company</h4>
+<ul class="space-y-2 text-sm text-on-surface-variant">
+<li><a class="hover:text-primary" href="#">About Us</a></li>
+<li><a class="hover:text-primary" href="#">Careers</a></li>
+<li><a class="hover:text-primary" href="#">Legal</a></li>
+<li><a class="hover:text-primary" href="#">Privacy Policy</a></li>
+</ul>
+</div>
+<div class="space-y-4">
+<h4 class="font-bold uppercase text-xs tracking-widest text-on-surface">Status</h4>
+<div class="inline-flex items-center gap-2 px-3 py-1 bg-tertiary/10 text-tertiary rounded-full text-[10px] font-bold uppercase tracking-wider">
+<span class="flex h-1.5 w-1.5 rounded-full bg-tertiary animate-pulse"></span>
+                            All Systems Operational
+                        </div>
+</div>
+</div>
+<div class="flex flex-col md:flex-row justify-between items-center pt-8 border-t border-outline-variant gap-4">
+<p class="text-xs text-on-surface-variant">© 2024 CipherStrike. All rights reserved.</p>
+<div class="flex gap-8 text-[10px] font-bold uppercase tracking-widest text-on-surface-variant">
+<a class="hover:text-on-surface transition-colors" href="#">Term of Service</a>
+<a class="hover:text-on-surface transition-colors" href="#">Security Disclosure</a>
+<a class="hover:text-on-surface transition-colors" href="#">Responsible disclosure</a>
+</div>
+</div>
+</div>
+</footer>
+</main>
+</body></html>

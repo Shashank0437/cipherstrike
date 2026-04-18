@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>CipherStrike | Secure Login</title>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-secondary-fixed-variant": "#5a5b63",
+                        "secondary-fixed": "#e3e1ec",
+                        "tertiary-fixed": "#6bffc1",
+                        "on-tertiary-fixed": "#004b33",
+                        "outline": "#797988",
+                        "error-container": "#f97386",
+                        "outline-variant": "#b1b1c0",
+                        "inverse-surface": "#0d0e14",
+                        "secondary-container": "#e3e1ec",
+                        "background": "#fbf8ff",
+                        "primary-fixed-dim": "#987cea",
+                        "on-error": "#fff7f7",
+                        "primary-fixed": "#a589f8",
+                        "tertiary-fixed-dim": "#5af0b4",
+                        "secondary-fixed-dim": "#d4d3dd",
+                        "tertiary-dim": "#005f41",
+                        "secondary": "#5e5e67",
+                        "on-primary-container": "#230062",
+                        "on-secondary-fixed": "#3e3f47",
+                        "inverse-primary": "#a589f8",
+                        "on-secondary-container": "#515159",
+                        "on-primary-fixed-variant": "#2e007c",
+                        "on-tertiary": "#e6ffef",
+                        "on-secondary": "#faf8ff",
+                        "surface-bright": "#fbf8ff",
+                        "surface-dim": "#d9d8e9",
+                        "surface-container-low": "#f4f2fe",
+                        "surface-container": "#eeecfa",
+                        "tertiary": "#006d4b",
+                        "on-tertiary-fixed-variant": "#006b4a",
+                        "surface-tint": "#684cb6",
+                        "surface-variant": "#e2e1f2",
+                        "surface-container-high": "#e8e7f5",
+                        "error-dim": "#6b0221",
+                        "error": "#a8364b",
+                        "inverse-on-surface": "#9d9ca4",
+                        "surface-container-lowest": "#ffffff",
+                        "secondary-dim": "#52525b",
+                        "on-surface": "#30323e",
+                        "primary-dim": "#5b3fa9",
+                        "primary-container": "#a589f8",
+                        "surface-container-highest": "#e2e1f2",
+                        "on-error-container": "#6e0523",
+                        "tertiary-container": "#6bffc1",
+                        "on-tertiary-container": "#006042",
+                        "on-surface-variant": "#5d5e6c",
+                        "on-background": "#30323e",
+                        "on-primary-fixed": "#000000",
+                        "surface": "#fbf8ff",
+                        "primary": "#684cb6",
+                        "on-primary": "#fdf7ff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "fontFamily": {
+                        "headline": ["Public Sans", "sans-serif"],
+                        "body": ["Public Sans", "sans-serif"],
+                        "label": ["Public Sans", "sans-serif"]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Public Sans', sans-serif;
+            background-color: #fbf8ff;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .grain-overlay {
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+            opacity: 0.03;
+            pointer-events: none;
+        }
+    </style>
+</head>
+<body class="antialiased text-on-surface">
+<!-- Suppression of Nav Shells as per "The Destination Rule" for Transactional Screens -->
+<main class="min-h-screen flex items-center justify-center relative overflow-hidden px-6 pt-12 pb-8">
+<!-- Background Decor -->
+<div class="absolute inset-0 grain-overlay"></div>
+<div class="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-primary-container/20 blur-[120px] rounded-full"></div>
+<div class="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] bg-tertiary-container/10 blur-[120px] rounded-full"></div>
+<div class="w-full max-w-md z-10 space-y-6">
+<!-- Branding Header -->
+<div class="text-center space-y-2">
+<div class="inline-flex items-center justify-center w-14 h-14 rounded-xl bg-primary mb-4 shadow-sm border border-primary-dim">
+<span class="material-symbols-outlined text-on-primary text-3xl" data-icon="shield_lock" style="font-variation-settings: 'FILL' 1;">shield_lock</span>
+</div>
+<h1 class="text-3xl font-black tracking-tighter text-on-surface uppercase">CipherStrike</h1>
+<p class="text-on-surface-variant font-medium tracking-tight text-sm">Secure Login • Offensive Ops Portal</p>
+</div>
+<!-- Login Form Container -->
+<div class="bg-surface-container-lowest border border-outline-variant p-8 rounded-xl shadow-sm space-y-6">
+<!-- Stage 1: Identification -->
+<div class="space-y-5" id="login-stage">
+<div class="space-y-4">
+<div class="space-y-1.5">
+<label class="text-xs font-bold text-on-surface-variant uppercase tracking-widest ml-1" for="email">Operator ID</label>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline text-lg" data-icon="alternate_email">alternate_email</span>
+<input class="w-full pl-10 pr-4 py-3 bg-surface-container-low border border-outline-variant rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-all outline-none text-on-surface font-medium placeholder:text-outline/50" id="email" placeholder="name@example.com" type="email"/>
+</div>
+</div>
+<div class="space-y-1.5">
+<div class="flex justify-between items-end">
+<label class="text-xs font-bold text-on-surface-variant uppercase tracking-widest ml-1" for="password">Access Cipher</label>
+<a class="text-[10px] font-bold text-primary hover:underline uppercase tracking-tighter" href="#">Lost Key?</a>
+</div>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline text-lg" data-icon="key">key</span>
+<input class="w-full pl-10 pr-4 py-3 bg-surface-container-low border border-outline-variant rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-all outline-none text-on-surface font-medium placeholder:text-outline/50" id="password" placeholder="••••••••••••" type="password"/>
+</div>
+</div>
+</div>
+<a class="w-full py-4 bg-primary text-on-primary font-bold rounded-lg hover:bg-primary-dim transition-colors flex items-center justify-center gap-2 group decoration-none" href="/history">
+<span>INITIATE SESSION</span>
+<span class="material-symbols-outlined text-lg group-hover:translate-x-1 transition-transform" data-icon="arrow_forward">arrow_forward</span>
+</a>
+</div>
+<!-- Divider -->
+<div class="relative flex items-center py-2">
+<div class="flex-grow border-t border-outline-variant/50"></div>
+<span class="flex-shrink mx-4 text-[10px] font-black text-outline uppercase tracking-[0.2em]">Required Protocol</span>
+<div class="flex-grow border-t border-outline-variant/50"></div>
+</div>
+<!-- Stage 2: Multi-Factor Authentication (Simulated) -->
+<div class="space-y-6" id="mfa-stage">
+<div class="bg-tertiary-container/20 border border-tertiary/20 p-4 rounded-lg flex gap-4 items-start">
+<span class="material-symbols-outlined text-tertiary" data-icon="verified_user">verified_user</span>
+<div class="space-y-1">
+<p class="text-xs font-bold text-on-tertiary-container uppercase">2FA Challenge</p>
+<p class="text-xs text-on-surface-variant leading-relaxed">Enter the 6-digit code from your hardware token or authenticator app.</p>
+</div>
+</div>
+<div class="flex justify-between gap-2" id="otp-container">
+<input class="w-12 h-14 text-center text-xl font-black bg-surface-container border border-outline-variant rounded-lg focus:ring-2 focus:ring-primary outline-none" maxlength="1" type="text" value="4"/>
+<input class="w-12 h-14 text-center text-xl font-black bg-surface-container border border-outline-variant rounded-lg focus:ring-2 focus:ring-primary outline-none" maxlength="1" type="text" value="8"/>
+<input class="w-12 h-14 text-center text-xl font-black bg-surface-container border border-outline-variant rounded-lg focus:ring-2 focus:ring-primary outline-none" maxlength="1" type="text" value="2"/>
+<input class="w-12 h-14 text-center text-xl font-black bg-surface-container border border-outline-variant rounded-lg focus:ring-2 focus:ring-primary outline-none" maxlength="1" placeholder="·" type="text"/>
+<input class="w-12 h-14 text-center text-xl font-black bg-surface-container border border-outline-variant rounded-lg focus:ring-2 focus:ring-primary outline-none" maxlength="1" placeholder="·" type="text"/>
+<input class="w-12 h-14 text-center text-xl font-black bg-surface-container border border-outline-variant rounded-lg focus:ring-2 focus:ring-primary outline-none" maxlength="1" placeholder="·" type="text"/>
+</div>
+<div class="flex flex-col items-center gap-3">
+<button class="text-xs font-bold text-primary hover:text-primary-dim uppercase tracking-wider flex items-center gap-1.5 transition-colors">
+<span class="material-symbols-outlined text-sm" data-icon="refresh">refresh</span>
+                            Resend Token
+                        </button>
+</div>
+</div>
+</div>
+<!-- Footer Meta -->
+<div class="flex flex-col items-center space-y-4">
+<div class="flex items-center gap-6 text-[10px] font-bold text-on-surface-variant uppercase tracking-widest">
+<a class="hover:text-primary transition-colors" href="#">Security Policy</a>
+<span class="w-1 h-1 bg-outline-variant rounded-full"></span>
+<a class="hover:text-primary transition-colors" href="#">Incident Response</a>
+<span class="w-1 h-1 bg-outline-variant rounded-full"></span>
+<a class="hover:text-primary transition-colors" href="#">Node Status</a>
+</div>
+<p class="text-[9px] text-outline text-center leading-relaxed max-w-[280px]">
+                    Authorized access only. All activities are logged and monitored under the Global Offensive Operations directive.
+                </p>
+</div>
+</div>
+<!-- Decorative Floating Elements -->
+<div class="hidden lg:block absolute left-12 bottom-12 border border-outline-variant bg-surface-container-low p-4 rounded-lg max-w-[200px] shadow-sm">
+<div class="flex items-center gap-2 mb-2">
+<div class="w-2 h-2 rounded-full bg-tertiary"></div>
+<span class="text-[10px] font-black uppercase tracking-tighter">System Integrity</span>
+</div>
+<div class="space-y-1.5">
+<div class="h-1 w-full bg-surface-variant rounded-full overflow-hidden">
+<div class="h-full w-[94%] bg-tertiary"></div>
+</div>
+<p class="text-[9px] text-on-surface-variant leading-tight">Encryption standard AES-256 active. Proxy mesh stabilized.</p>
+</div>
+</div>
+<div class="hidden lg:block absolute right-12 top-12">
+<div class="flex flex-col items-end gap-2">
+<span class="text-[10px] font-black uppercase tracking-[0.3em] text-outline">Terminal Sync</span>
+<div class="flex gap-1">
+<div class="w-1.5 h-6 bg-primary-container"></div>
+<div class="w-1.5 h-4 bg-primary-container"></div>
+<div class="w-1.5 h-8 bg-primary"></div>
+<div class="w-1.5 h-5 bg-primary-container"></div>
+</div>
+</div>
+</div>
+</main>
+<!-- Side Graphic (Subtle) -->
+<div class="fixed right-0 top-0 h-full w-1 border-l border-outline-variant opacity-20"></div>
+<div class="fixed left-0 top-0 h-full w-1 border-r border-outline-variant opacity-20"></div>
+</body></html>
