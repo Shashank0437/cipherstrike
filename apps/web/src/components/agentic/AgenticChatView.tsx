@@ -669,7 +669,7 @@ export function AgenticChatView({
         className={
           ran
             ? "terminal-scroll mx-auto w-full max-w-4xl flex-1 min-h-0 space-y-8 overflow-y-auto p-8"
-            : "terminal-scroll mx-auto w-full max-w-4xl shrink-0 overflow-y-auto px-6 pb-1 pt-4 sm:px-8"
+            : "terminal-scroll mx-auto w-full max-w-4xl shrink-0 overflow-y-auto px-6 pb-8 pt-6 sm:px-8 sm:pb-10"
         }
       >
         {!ran ? (
@@ -824,8 +824,8 @@ export function AgenticChatView({
       <div
         className={
           ran
-            ? "shrink-0 border-t border-outline-variant/70 bg-background px-4 py-5 sm:px-6"
-            : "shrink-0 border-t border-outline-variant/70 bg-background px-4 pb-5 pt-4 sm:px-6"
+            ? "shrink-0 bg-background px-4 py-6 sm:px-6"
+            : "shrink-0 bg-background px-4 pb-10 pt-8 sm:px-6 sm:pb-12 sm:pt-10"
         }
       >
         <div className="mx-auto max-w-4xl">
